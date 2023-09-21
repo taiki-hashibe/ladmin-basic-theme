@@ -1,4 +1,4 @@
-<x-layouts-ladmin>
+<x-layouts-base>
     <x-slot name="header">
         {{ Ladmin::getNavigation('navigation')->render() }}
         <hr>
@@ -9,11 +9,11 @@
         </details>
         <hr>
     </x-slot>
-    <x-slot name="content">testtest
+    <x-slot name="content">
         @isset($content)
             {{ $content }}
         @endisset
     </x-slot>
     <x-slot name="footer">
     </x-slot>
-</x-layouts-ladmin>
+</x-layouts-base>

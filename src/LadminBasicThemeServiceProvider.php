@@ -25,6 +25,6 @@ class LadminBasicThemeServiceProvider extends PackageServiceProvider
             });
         Blade::component('layouts-base', \LowB\LadminBasicTheme\View\Components\BaseLayout::class);
         Blade::component('layouts-auth', \LowB\LadminBasicTheme\View\Components\AuthLayout::class);
-        Blade::component('layouts-guest', \LowB\BasicTheme\View\Components\GuestLayout::class);
+        Blade::component('layouts-guest', \LowB\LadminBasicTheme\View\Components\GuestLayout::class);
     }
 }

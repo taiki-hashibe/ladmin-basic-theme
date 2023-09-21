@@ -9,6 +9,6 @@ class BaseLayout extends Component
 {
     public function render(): View
     {
-        return view('ladmin-basic-theme::layouts.ladmin');
+        return view('ladmin-basic-theme::layouts.base');
     }
 }
