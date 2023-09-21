@@ -23,8 +23,5 @@ class LadminBasicThemeServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command->publishAssets();
             });
-        Blade::component('layouts-ladmin', \LowB\LadminBasicTheme\View\Components\LadminLayout::class);
-        Blade::component('layouts-auth', \LowB\LadminBasicTheme\View\Components\AuthLayout::class);
-        Blade::component('layouts-guest', \LowB\LadminBasicTheme\View\Components\GuestLayout::class);
     }
 }
