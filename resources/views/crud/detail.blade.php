@@ -1,6 +1,16 @@
 <x-layouts-auth>
     <x-slot name="content">
-        <x-heading>{{ Ladmin::currentRoute()->getLabel() }}</x-heading>
+        <ul class="flex mb-2" aria-label="Breadcrumb">
+            <li class="inline-flex items-center">
+                <a class="text-slate-400" href="{{ route(Ladmin::getShowRouteName()) }}">
+                    {{ __(Ladmin::currentRoute()->getLabel()) }}
+                </a>
+            </li>
+            <li>
+                <span class="text-slate-400 px-2">/</span>
+            </li>
+        </ul>
+        <x-heading>{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</x-heading>
         <x-card>
             <div class="mb-3 px-0 md:px-4">
                 @foreach ($fields as $field)

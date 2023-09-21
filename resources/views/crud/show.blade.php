@@ -1,6 +1,6 @@
 <x-layouts-auth>
     <x-slot name="content">
-        <x-heading>{{ Ladmin::currentRoute()->getLabel() }}</x-heading>
+        <x-heading>{{ __(Ladmin::currentRoute()->getLabel()) }}</x-heading>
         <x-card>
             <div class="sb-x-view overflow-hidden">
                 <div class="sb-content">
