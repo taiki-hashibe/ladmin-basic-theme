@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div>
+    <div>testtest
         {{ $header }}
         {{ $content }}
         {{ $footer }}
