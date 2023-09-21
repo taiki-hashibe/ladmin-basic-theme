@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace LowB\LadminBasicTheme;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class LadminBasicThemeServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,11 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
-            ->hasConfigFile()
+            ->name('ladmin-basic-theme')
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasAssets()
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command->publishAssets();
+            });
     }
 }
