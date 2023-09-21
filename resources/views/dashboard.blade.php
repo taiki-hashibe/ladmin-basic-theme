@@ -1,5 +1,7 @@
 <x-layouts-auth>
     <x-slot name="content">
-        <h1>{{ __('Dashboard') }}</h1>test
+        <x-heading>{{ __('Dashboard') }}</x-heading>
+        <x-card>
+        </x-card>
     </x-slot>
 </x-layouts-auth>

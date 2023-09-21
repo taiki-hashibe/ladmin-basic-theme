@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('vendor/ladmin-basic-theme/css/ladmin.css') }}">
-    <script src="{{ asset('vendor/ladmin-basic-theme/js/ladmin.js') }}"></script>
+    <link rel="stylesheet" href="/vendor/ladmin-basic-theme/ladmin.css">
     <title>{{ config('app.name') }}</title>
 </head>
 
-<body>
+<body class="bg-slate-100">
     <div class="min-h-screen">
         {{ $header }}
         {{ $content }}
         {{ $footer }}
     </div>
+    <script src="/vendor/ladmin-basic-theme/ladmin.js"></script>
 </body>
 
 </html>
