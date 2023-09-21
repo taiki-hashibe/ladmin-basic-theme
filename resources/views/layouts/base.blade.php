@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="min-h-screen">
         {{ $header }}
         {{ $content }}
         {{ $footer }}

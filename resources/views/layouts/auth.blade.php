@@ -1,6 +1,8 @@
 <x-layouts-base>
     <x-slot name="header">
-        {{ Ladmin::getNavigation('navigation')->render() }}
+        <ul class="flex">
+            {{ Ladmin::getNavigation('navigation')->render() }}
+        </ul>
         <hr>
         <details>
             <summary>{{ __('user name') }}
