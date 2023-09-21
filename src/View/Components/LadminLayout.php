@@ -9,6 +9,6 @@ class LadminLayout extends Component
 {
     public function render(): View
     {
-        return view('ladmin::layouts.ladmin');
+        return view('ladmin-basic-theme::layouts.ladmin');
     }
 }

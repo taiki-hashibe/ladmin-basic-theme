@@ -9,6 +9,6 @@ class AuthLayout extends Component
 {
     public function render(): View
     {
-        return view('ladmin::layouts.auth');
+        return view('ladmin-basic-theme::layouts.auth');
     }
 }

@@ -9,6 +9,6 @@ class GuestLayout extends Component
 {
     public function render(): View
     {
-        return view('ladmin::layouts.guest');
+        return view('ladmin-basic-theme::layouts.guest');
     }
 }
