@@ -1,6 +1,6 @@
 <x-layouts-base>
     <x-slot name="header">
-        <header class="w-full flex justify-between px-8 py-3 mb-8">
+        <header class="w-full flex justify-between px-6 md:px-8 py-3 mb-8">
             <div>
                 <h1 class="text-lg font-bold text-slate-600">{{ config('app.name') }}</h1>
             </div>
@@ -45,14 +45,14 @@
     </x-slot>
     <x-slot name="content">
         <main class="flex">
-            <div class="w-1/5 px-2">
+            <div class="hidden md:block w-1/5 px-2">
                 <div class="px-4">
                     <ul>
                         {{ Ladmin::getNavigation('navigation')->render() }}
                     </ul>
                 </div>
             </div>
-            <div class="w-4/5 ps-2 pe-8">
+            <div class="w-full md:w-4/5 px-6 md:ps-2 md:pe-8">
                 @isset($content)
                     {{ $content }}
                 @endisset
