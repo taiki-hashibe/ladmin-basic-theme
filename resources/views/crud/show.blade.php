@@ -19,7 +19,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Ladmin::currentQuery()->paginate(24) as $item)
+                            @foreach (Ladmin::currentQuery()->filter()->paginate(24) as $item)
                                 <tr>
                                     @foreach ($fields as $field)
                                         {{ $field->render($item) }}
@@ -40,6 +40,6 @@
                 </div>
             </div>
         </x-card>
-        {{ Ladmin::currentQuery()->paginate(24)->withQueryString()->links() }}
+        {{ Ladmin::currentQuery()->filter()->paginate(24)->withQueryString()->links() }}
     </x-slot>
 </x-layouts-auth>
