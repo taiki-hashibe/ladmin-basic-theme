@@ -13,35 +13,40 @@
                         class="rounded w-full py-2 px-3 text-gray-700 font-normal leading-tight focus:outline-none"
                         @if (isset(request()->{"keyword"})) value="{{ request()->{"keyword"} }}" @endif
                         placeholder='{{ __('Search') }}'>
+                    {{ Ladmin::filter()->except('keyword')->render() }}
                 </form>
             </label>
-            @foreach (request()->all() as $key => $param)
-                @if ($key === 'order')
-                    <span class="inline-block bg-gray-600 text-white rounded p-1 pe-2 mt-2 me-2">
-                        <button type="button" class="align-middle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                class="w-4 h-4">
-                                <path
-                                    d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-                            </svg>
-                        </button>
-                        {{ __('Order By ' . $param['by'] . ' in ' . $param['direction']) }}
-                    </span>
-                @else
-                    @if ($param)
-                        <span class="inline-block bg-gray-600 text-white rounded p-1 pe-2 mt-2 me-2">
-                            <button type="button" class="align-middle">
+            <div class="flex flex-wrap">
+                @foreach (request()->all() as $key => $param)
+                    @if ($key === 'order')
+                        <form method="get" class="inline-block bg-gray-600 text-white rounded p-1 pe-2 mt-2 me-2">
+                            <button class="align-middle">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                     class="w-4 h-4">
                                     <path
                                         d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
                                 </svg>
                             </button>
-                            {{ __(Str::after($key, '_') . ' : ' . $param) }}
-                        </span>
+                            {{ __('Order By ' . $param['by'] . ' in ' . $param['direction']) }}
+                            {{ Ladmin::filter()->except('order')->render() }}
+                        </form>
+                    @else
+                        @if ($param)
+                            <form method="get" class="inline-block bg-gray-600 text-white rounded p-1 pe-2 mt-2 me-2">
+                                <button class="align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                        class="w-4 h-4">
+                                        <path
+                                            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                                    </svg>
+                                </button>
+                                {{ __(Str::after($key, '_') . ' : ' . $param) }}
+                                {{ Ladmin::filter()->except($key)->render() }}
+                            </form>
+                        @endif
                     @endif
-                @endif
-            @endforeach
+                @endforeach
+            </div>
         </div>
         <x-card class="mb-6">
             <div class="sb-x-view overflow-hidden">

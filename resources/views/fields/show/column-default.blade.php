@@ -36,11 +36,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            @foreach (request()->all() as $key => $param)
-                                @if (!is_array($param))
-                                    <input type="hidden" name="{{ $key }}" value="{{ $param }}">
-                                @endif
-                            @endforeach
+                            {{ Ladmin::filter()->except('order')->render() }}
                         </form>
                     @else
                         <form method="get" class="flex">
@@ -54,11 +50,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            @foreach (request()->all() as $key => $param)
-                                @if ($key !== 'keyword' && !is_array($param))
-                                    <input type="hidden" name="{{ $key }}" value="{{ $param }}">
-                                @endif
-                            @endforeach
+                            {{ Ladmin::filter()->except('order')->render() }}
                         </form>
                     @endif
                 @else
@@ -74,11 +66,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            @foreach (request()->all() as $key => $param)
-                                @if ($key !== 'keyword' && !is_array($param))
-                                    <input type="hidden" name="{{ $key }}" value="{{ $param }}">
-                                @endif
-                            @endforeach
+                            {{ Ladmin::filter()->except('order')->render() }}
                         </form>
                         <form method="get" class="h-1/2 flex">
                             <input type="hidden" name="order[by]" value="{{ $name }}">
@@ -91,11 +79,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            @foreach (request()->all() as $key => $param)
-                                @if (!is_array($param))
-                                    <input type="hidden" name="{{ $key }}" value="{{ $param }}">
-                                @endif
-                            @endforeach
+                            {{ Ladmin::filter()->except('order')->render() }}
                         </form>
                     </div>
                 @endif
@@ -112,8 +96,7 @@
             <div class="py-1" role="none">
                 <form method="get">
                     <label class="flex items-center px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="w-5 h-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                             <path fill-rule="evenodd"
                                 d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
                                 clip-rule="evenodd" />
