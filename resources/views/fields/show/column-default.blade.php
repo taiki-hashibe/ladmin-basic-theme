@@ -55,7 +55,7 @@
                                 </svg>
                             </button>
                             @foreach (request()->all() as $key => $param)
-                                @if (!is_array($param))
+                                @if ($key !== 'keyword' && !is_array($param))
                                     <input type="hidden" name="{{ $key }}" value="{{ $param }}">
                                 @endif
                             @endforeach
@@ -75,7 +75,7 @@
                                 </svg>
                             </button>
                             @foreach (request()->all() as $key => $param)
-                                @if (!is_array($param))
+                                @if ($key !== 'keyword' && !is_array($param))
                                     <input type="hidden" name="{{ $key }}" value="{{ $param }}">
                                 @endif
                             @endforeach
@@ -124,7 +124,7 @@
                             placeholder='{{ __("Search by '$name'") }}'>
                     </label>
                     @foreach (request()->all() as $key => $param)
-                        @if ($key !== "_$name" && !is_array($param))
+                        @if ($key !== "_$name" && $key !== 'keyword' && !is_array($param))
                             <input type="hidden" name="{{ $key }}" value="{{ $param }}">
                         @endif
                         @if (is_array($param) && $key === 'order')
