@@ -41,5 +41,6 @@
                 </div>
             </div>
         </x-card>
+        {{ Ladmin::currentQuery()->paginate(24)->withQueryString()->links() }}
     </x-slot>
 </x-layouts-auth>
