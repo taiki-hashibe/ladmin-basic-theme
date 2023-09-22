@@ -9,6 +9,6 @@ class Modal extends Component
 {
     public function render(): View
     {
-        return view("ladmin-basic-theme::components.modal");
+        return view('ladmin-basic-theme::components.modal');
     }
 }
