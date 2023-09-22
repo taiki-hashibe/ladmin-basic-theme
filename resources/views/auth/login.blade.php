@@ -5,19 +5,19 @@
                 action="{{ route(Ladmin::route()->auth()->register()->name) }}">
                 @csrf
 
-                @include('ladmin::fields.edit.default', [
+                @include('ladmin-basic-theme::fields.edit.default', [
                     'label' => 'email',
                     'name' => 'email',
                     'type' => 'email',
                 ])
 
-                @include('ladmin::fields.edit.default', [
+                @include('ladmin-basic-theme::fields.edit.default', [
                     'label' => 'password',
                     'name' => 'password',
                     'type' => 'password',
                 ])
 
-                <button>{{ __('login') }} </button>
+                <x-button variant="primary">{{ __('login') }} </x-button>
             </form>
         </div>
     </x-slot>

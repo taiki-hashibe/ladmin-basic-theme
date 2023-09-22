@@ -28,8 +28,8 @@ class LadminBasicThemeServiceProvider extends PackageServiceProvider
         Blade::component('layouts-guest', \LowB\LadminBasicTheme\View\Components\GuestLayout::class);
         Blade::component('card', \LowB\LadminBasicTheme\View\Components\Card::class);
         Blade::component('heading', \LowB\LadminBasicTheme\View\Components\Heading::class);
-        Blade::component('anchor.primary', \LowB\LadminBasicTheme\View\Components\Anchor\Primary::class);
-        Blade::component('anchor.info', \LowB\LadminBasicTheme\View\Components\Anchor\Info::class);
-        Blade::component('anchor.danger', \LowB\LadminBasicTheme\View\Components\Anchor\Danger::class);
+        Blade::component('anchor', \LowB\LadminBasicTheme\View\Components\Anchor::class);
+        Blade::component('button', \LowB\LadminBasicTheme\View\Components\Button::class);
+        Blade::component('modal', \LowB\LadminBasicTheme\View\Components\Modal::class);
     }
 }

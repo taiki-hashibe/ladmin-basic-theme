@@ -1,20 +1,10 @@
 <x-layouts-base>
     <x-slot name="header">
-        <nav class="bg-white border-b border-gray-100">
-            <!-- Primary Navigation Menu -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-start h-16">
-                    <div class="flex w-[90%]">
-                        <div class="shrink-0 flex items-center bt-white sticky left-0 w-[10%]">
-                            <a href="{{ route('admin.dashboard') }}">
-                                {{ config('app.name') }}
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+        <header class="w-full flex justify-start px-8 py-3 mb-8">
+            <div>
+                <h1 class="text-lg font-bold text-slate-600">{{ config('app.name') }}</h1>
             </div>
-        </nav>
+        </header>
     </x-slot>
     <x-slot name="content">
         @isset($content)

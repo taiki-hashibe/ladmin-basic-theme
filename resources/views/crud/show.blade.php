@@ -27,10 +27,11 @@
                                     @endforeach
                                     @if (Ladmin::hasDetail())
                                         <td class="px-1.5 py-1 border-b border-slate-100">
-                                            <x-anchor.primary
+                                            <x-anchor
                                                 href="{{ route(Ladmin::getDetailRouteName(), [
                                                     'primaryKey' => Ladmin::itemPrimaryKey($item),
-                                                ]) }}">{{ __('Detail') }}</x-anchor.primary>
+                                                ]) }}"
+                                                variant="primary">{{ __('Detail') }}</x-anchor>
                                         </td>
                                     @endif
                                 </tr>
