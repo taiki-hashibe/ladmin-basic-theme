@@ -9,6 +9,17 @@
             <li>
                 <span class="text-slate-400 px-2">/</span>
             </li>
+            <li class="inline-flex items-center">
+                <a class="text-slate-400"
+                    href="{{ route(Ladmin::getDetailRouteName(), [
+                        'primaryKey' => Ladmin::currentItemPrimaryKey(),
+                    ]) }}">
+                    {{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}
+                </a>
+            </li>
+            <li>
+                <span class="text-slate-400 px-2">/</span>
+            </li>
         </ul>
         <x-heading>{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</x-heading>
         <x-card>
