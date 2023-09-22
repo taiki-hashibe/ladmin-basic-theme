@@ -11,7 +11,6 @@
 
 <body class="bg-slate-100">
     <div class="min-h-screen">
-        {{ $header }}
         {{ $content }}
         {{ $footer }}
     </div>
