@@ -7,11 +7,10 @@
                     <table class="border-collapse table-auto w-full">
                         <thead>
                             <tr class="bg-gray-100">
-                                @foreach (Ladmin::currentQuery()->getColumnNames() as $columnName)
-                                    <th
-                                        class="border-b dark:border-slate-600 font-medium p-4 pl-8 pb-3 text-slate-400 text-left">
-                                        {{ __($columnName) }}
-                                    </th>
+                                @foreach ($fields as $i => $field)
+                                    {{ $field->showColumnRender([
+                                        'index' => $i,
+                                    ]) }}
                                 @endforeach
                                 @if (Ladmin::hasDetail())
                                     <th class="border-b font-medium p-4 pl-8 pb-3 text-slate-400 text-left">
