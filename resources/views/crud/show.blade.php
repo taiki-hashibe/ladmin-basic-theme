@@ -30,7 +30,7 @@
                             {{ __('Order By ' . $param['by'] . ' in ' . $param['direction']) }}
                             {{ Ladmin::filter()->except('order')->render() }}
                         </form>
-                    @else
+                    @elseif($key !== 'page')
                         @if ($param)
                             <form method="get" class="inline-block bg-gray-600 text-white rounded p-1 pe-2 mt-2 me-2">
                                 <button class="align-middle">
