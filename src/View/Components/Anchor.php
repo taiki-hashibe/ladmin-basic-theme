@@ -8,7 +8,7 @@ use Illuminate\View\View;
 
 class Anchor extends Component
 {
-    public string $class;
+    public string $variantClass;
 
     public array $variantClassMap = [
         'primary' => 'bg-sky-300 text-white',
@@ -18,10 +18,10 @@ class Anchor extends Component
 
     public function __construct(string $variant)
     {
-        if (! Arr::exists($this->variantClassMap, $variant)) {
+        if (!Arr::exists($this->variantClassMap, $variant)) {
             throw new \Exception("Invalid variant: $variant");
         }
-        $this->class = $this->variantClassMap[$variant];
+        $this->variantClass = $this->variantClassMap[$variant];
     }
 
     public function render(): View

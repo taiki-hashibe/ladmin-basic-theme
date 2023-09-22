@@ -21,37 +21,42 @@
                 @foreach ($fields as $field)
                     {{ $field->render(Ladmin::currentItem()) }}
                 @endforeach
-                <x-button variant="primary">{{ __('Submit') }}</x-button>
-            </form>
-            @if (Ladmin::hasDestroy())
-                <x-button variant="danger" x-data=""
-                    x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-button>
-            @endif
-        </x-card>
-        <x-modal name="delete-modal" :show="$errors->userDeletion->isNotEmpty()" focusable>
-            <form
-                action="{{ route(Ladmin::getDestroyRouteName(), [
-                    'primaryKey' => Ladmin::currentItemPrimaryKey(),
-                ]) }}"
-                method="POST" class="p-6">
-                @csrf
-
-                <p class="mt-1 text-gray-600">
-                    {{ __('Are you sure you want to delete') }}
-                    <span
-                        class="font-bold">{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</span>?
-                </p>
-
-                <div class="mt-6 flex justify-end">
-                    <x-button variant="primary" x-on:click="$dispatch('close')">
-                        {{ __('Cancel') }}
-                    </x-button>
-
-                    <x-button variant="danger" class="ml-3">
-                        {{ __('Delete') }}
-                    </x-button>
+                <div class="w-full flex justify-end px-0">
+                    <x-button variant="primary"
+                        class="@if (Ladmin::hasDestroy()) me-2 @endif">{{ __('Submit') }}</x-button>
+                    @if (Ladmin::hasDestroy())
+                        <x-button type="button" variant="danger" x-data=""
+                            x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-button>
+                    @endif
                 </div>
             </form>
-        </x-modal>
+        </x-card>
+        @if (Ladmin::hasDestroy())
+            <x-modal name="delete-modal" :show="$errors->userDeletion->isNotEmpty()" focusable>
+                <form
+                    action="{{ route(Ladmin::getDestroyRouteName(), [
+                        'primaryKey' => Ladmin::currentItemPrimaryKey(),
+                    ]) }}"
+                    method="POST" class="p-6">
+                    @csrf
+
+                    <p class="mt-1 text-gray-600">
+                        {{ __('Are you sure you want to delete') }}
+                        <span
+                            class="font-bold">{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</span>?
+                    </p>
+
+                    <div class="mt-6 flex justify-end">
+                        <x-button type="button" variant="primary" x-on:click="$dispatch('close')">
+                            {{ __('Cancel') }}
+                        </x-button>
+
+                        <x-button variant="danger" class="ml-3">
+                            {{ __('Delete') }}
+                        </x-button>
+                    </div>
+                </form>
+            </x-modal>
+        @endif
     </x-slot>
 </x-layouts-auth>

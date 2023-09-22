@@ -1,7 +1,7 @@
 <x-layouts-auth>
     <x-slot name="content">
         <x-heading>{{ __(Ladmin::currentRoute()->getLabel()) }}</x-heading>
-        <x-card>
+        <x-card class="mb-6">
             <div class="sb-x-view overflow-hidden">
                 <div class="sb-content">
                     <table class="border-collapse table-auto w-full">

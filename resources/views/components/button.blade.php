@@ -1,1 +1,1 @@
-<button {{ $attributes->merge(['class' => "$class px-2 py-1.5 rounded"]) }}>{{ $slot }}</button>
+<button {{ $attributes->merge(['class' => "$variantClass px-2 py-1.5 rounded"]) }}>{{ $slot }}</button>

@@ -11,7 +11,7 @@
             </li>
         </ul>
         <x-heading>{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</x-heading>
-        <x-card>
+        <x-card class="mb-6">
             <div class="mb-3 px-0 md:px-4">
                 @foreach ($fields as $field)
                     {{ $field->render(Ladmin::currentItem()) }}
@@ -19,7 +19,7 @@
             </div>
             <div class="w-full flex justify-end px-0 md:px-4">
                 @if (Ladmin::hasEdit())
-                    <x-anchor variant="primary"
+                    <x-anchor variant="primary" class="@if (Ladmin::hasDestroy()) me-2 @endif"
                         href="{{ route(Ladmin::getEditRouteName(), [
                             'primaryKey' => Ladmin::currentItemPrimaryKey(),
                         ]) }}">{{ __('Edit') }}</x-anchor>
@@ -46,7 +46,7 @@
                     </p>
 
                     <div class="mt-6 flex justify-end">
-                        <x-button variant="primary" x-on:click="$dispatch('close')">
+                        <x-button type="button" variant="primary" x-on:click="$dispatch('close')">
                             {{ __('Cancel') }}
                         </x-button>
 
