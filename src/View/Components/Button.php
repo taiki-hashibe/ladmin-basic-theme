@@ -18,7 +18,7 @@ class Button extends Component
 
     public function __construct(string $variant)
     {
-        if (!Arr::exists($this->variantClassMap, $variant)) {
+        if (! Arr::exists($this->variantClassMap, $variant)) {
             throw new \Exception("Invalid variant: $variant");
         }
         $this->variantClass = $this->variantClassMap[$variant];
