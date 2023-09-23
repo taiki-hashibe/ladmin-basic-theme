@@ -11,38 +11,56 @@
             </li>
             <li class="inline-flex items-center">
                 <a class="text-slate-400"
-                    href="{{ route(Ladmin::getDetailRouteName(), [
-                        'primaryKey' => Ladmin::currentItemPrimaryKey(),
-                    ]) }}">
-                    {{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}
+                    href="{{ Ladmin::hasCurrentItem()
+                        ? route(Ladmin::getDetailRouteName(), [
+                            'primaryKey' => Ladmin::currentItemPrimaryKey(),
+                        ])
+                        : route(Ladmin::getShowRouteName()) }}">
+                    @if (Ladmin::hasCurrentItem())
+                        {{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}
+                    @else
+                        {{ __('Create') }}
+                    @endif
                 </a>
             </li>
             <li>
                 <span class="text-slate-400 px-2">/</span>
             </li>
         </ul>
-        <x-heading>{{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}</x-heading>
+        <x-heading>
+            @if (Ladmin::hasCurrentItem())
+                {{ __(Ladmin::currentQuery()->getDisplayColumnValue(Ladmin::currentItemPrimaryKey())) }}
+            @else
+                {{ __('Create') }}
+            @endif
+        </x-heading>
         <x-card>
             <form
-                action="{{ route(Ladmin::getUpdateRouteName(), [
-                    'primaryKey' => Ladmin::currentItemPrimaryKey(),
-                ]) }}"
+                action="{{ Ladmin::hasCurrentItem()
+                    ? route(Ladmin::getUpdateRouteName(), [
+                        'primaryKey' => Ladmin::currentItemPrimaryKey(),
+                    ])
+                    : route(Ladmin::getCreateRouteName()) }}"
                 method="POST">
                 @csrf
                 @foreach ($fields as $field)
-                    {{ $field->render(Ladmin::currentItem()) }}
+                    {{ $field->render(Ladmin::hasCurrentItem() ? Ladmin::currentItem() : null) }}
                 @endforeach
                 <div class="w-full flex justify-end px-0">
-                    <x-button variant="primary"
-                        class="@if (Ladmin::hasDestroy()) me-2 @endif">{{ __('Submit') }}</x-button>
-                    @if (Ladmin::hasDestroy())
-                        <x-button type="button" variant="danger" x-data=""
-                            x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-button>
+                    @if (Ladmin::hasCurrentItem())
+                        <x-button variant="primary"
+                            class="@if (Ladmin::hasDestroy()) me-2 @endif">{{ __('Submit') }}</x-button>
+                        @if (Ladmin::hasDestroy())
+                            <x-button type="button" variant="danger" x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-button>
+                        @endif
+                    @else
+                        <x-button variant="primary">{{ __('Submit') }}</x-button>
                     @endif
                 </div>
             </form>
         </x-card>
-        @if (Ladmin::hasDestroy())
+        @if (Ladmin::hasCurrentItem() && Ladmin::hasDestroy())
             <x-modal name="delete-modal" :show="$errors->userDeletion->isNotEmpty()" focusable>
                 <form
                     action="{{ route(Ladmin::getDestroyRouteName(), [
