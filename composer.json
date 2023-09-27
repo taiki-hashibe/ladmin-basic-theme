@@ -2,7 +2,6 @@
     "name": "lowb/ladmin-basic-theme",
     "description": "This is my package ladmin-basic-theme",
     "keywords": [
-        "lowb",
         "laravel",
         "ladmin-basic-theme"
     ],
