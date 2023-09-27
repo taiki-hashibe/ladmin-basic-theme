@@ -1,7 +1,7 @@
-<x-layouts-auth>
+<x-ladmin-basic-layouts-auth>
     <x-slot name="content">
         {{-- <x-heading>{{ __(LadminCrud::curret()->label) }}</x-heading> --}}
-        <x-heading>{{ __(Ladmin::currentRoute()->getLabel()) }}</x-heading>
+        <x-ladmin-basic-heading>{{ __(Ladmin::currentRoute()->getLabel()) }}</x-ladmin-basic-heading>
         <div class="mb-4">
             <div class="flex justify-between">
                 <label class="w-1/2 flex items-center ps-2 pe-4 bg-white rounded-full border">
@@ -18,8 +18,8 @@
                         {{ Ladmin::filter()->except('keyword')->render() }}
                     </form>
                 </label>
-                <x-anchor variant="primary"
-                    href="{{ route(Ladmin::getEditRouteName()) }}">{{ __('Create') }}</x-anchor>
+                <x-ladmin-basic-anchor variant="primary"
+                    href="{{ route(Ladmin::getEditRouteName()) }}">{{ __('Create') }}</x-ladmin-basic-anchor>
             </div>
             <div class="flex flex-wrap">
                 @foreach (request()->all() as $key => $param)
@@ -53,7 +53,7 @@
                 @endforeach
             </div>
         </div>
-        <x-card class="mb-6">
+        <x-ladmin-basic-card class="mb-6">
             <div class="sb-x-view overflow-hidden">
                 <div class="sb-content">
                     <table class="border-collapse table-auto w-full">
@@ -78,11 +78,11 @@
                                     @endforeach
                                     @if (Ladmin::hasDetail())
                                         <td class="px-1.5 py-1 border-b border-slate-100">
-                                            <x-anchor
+                                            <x-ladmin-basic-anchor
                                                 href="{{ route(Ladmin::getDetailRouteName(), [
                                                     'primaryKey' => Ladmin::itemPrimaryKey($item),
                                                 ]) }}"
-                                                variant="primary">{{ __('Detail') }}</x-anchor>
+                                                variant="primary">{{ __('Detail') }}</x-ladmin-basic-anchor>
                                         </td>
                                     @endif
                                 </tr>
@@ -91,7 +91,7 @@
                     </table>
                 </div>
             </div>
-        </x-card>
+        </x-ladmin-basic-card>
         {{ Ladmin::currentQuery()->filter()->paginate(24)->withQueryString()->links() }}
     </x-slot>
-</x-layouts-auth>
+</x-ladmin-basic-layouts-auth>

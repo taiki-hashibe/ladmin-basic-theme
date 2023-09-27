@@ -1,4 +1,4 @@
-<x-layouts-guest>
+<x-ladmin-basic-layouts-guest>
     <x-slot name="content">
         <div class="w-full flex justify-center px-8">
             <form class="mt-8 px-6 py-8 mb-6 bg-white shadow-sm w-full md:w-2/5 rounded" method="POST"
@@ -17,8 +17,8 @@
                     'type' => 'password',
                 ])
 
-                <x-button variant="primary">{{ __('login') }} </x-button>
+                <x-ladmin-basic-button variant="primary">{{ __('login') }} </x-ladmin-basic-button>
             </form>
         </div>
     </x-slot>
-</x-layouts-guest>
+</x-ladmin-basic-layouts-guest>

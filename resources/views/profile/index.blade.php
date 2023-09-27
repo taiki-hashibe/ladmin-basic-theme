@@ -1,7 +1,7 @@
-<x-layouts-auth>
+<x-ladmin-basic-layouts-auth>
 
     <x-slot name="content">
-        <x-card class="mb-6">
+        <x-ladmin-basic-card class="mb-6">
             <form method="post" action="{{ Ladmin::route()->profile()->update()->url }}">
                 @csrf
                 <div class="mb-4">
@@ -21,10 +21,10 @@
                     'value' => auth()->user()->email,
                 ])
 
-                <x-button variant="primary">{{ __('Save') }}</x-button>
+                <x-ladmin-basic-button variant="primary">{{ __('Save') }}</x-ladmin-basic-button>
             </form>
-        </x-card>
-        <x-card class="mb-6">
+        </x-ladmin-basic-card>
+        <x-ladmin-basic-card class="mb-6">
             <form method="post" action="{{ Ladmin::route()->profile()->passwordChange()->url }}">
                 @csrf
                 <div class="mb-4">
@@ -45,30 +45,30 @@
                     'name' => 'password_confirmation',
                 ])
                 <div class="flex items-center gap-4">
-                    <x-button variant="primary">{{ __('Save') }}</x-button>
+                    <x-ladmin-basic-button variant="primary">{{ __('Save') }}</x-ladmin-basic-button>
 
                     @if (session('status') === 'password-updated')
                         <p>{{ __('Saved.') }}</p>
                     @endif
                 </div>
             </form>
-        </x-card>
-        <x-card class="mb-6">
+        </x-ladmin-basic-card>
+        <x-ladmin-basic-card class="mb-6">
             <div class="mb-4">
                 <h2 class="text-lg font-medium text-gray-900">{{ __('Delete Account') }}</h2>
                 <p class="mt-1 text-sm text-gray-600">
                     {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
                 </p>
             </div>
-            <x-button type="button" variant="danger" x-data=""
-                x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-button>
-        </x-card>
-        <x-modal name="delete-modal" :show="$errors->userDeletion->isNotEmpty()" focusable>
+            <x-ladmin-basic-button type="button" variant="danger" x-data=""
+                x-on:click.prevent="$dispatch('open-modal', 'delete-modal')">{{ __('Delete') }}</x-ladmin-basic-button>
+        </x-ladmin-basic-card>
+        <x-ladmin-basic-modal name="delete-modal" :show="$errors->userDeletion->isNotEmpty()" focusable>
             <form action="{{ Ladmin::route()->profile()->destroy()->url }}" method="POST" class="p-6">
                 @csrf
                 <p class="mt-1 text-sm text-gray-600">
                     {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    enter your password to confirm you would like to permanently delete your account.') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        enter your password to confirm you would like to permanently delete your account.') }}
                 </p>
                 <p class="mt-1 text-gray-600">
                     {{ __('Are you sure you want to delete ?') }}
@@ -78,15 +78,15 @@
                     'name' => 'password',
                 ])
                 <div class="mt-6 flex justify-end">
-                    <x-button type="button" variant="primary" x-on:click="$dispatch('close')">
+                    <x-ladmin-basic-button type="button" variant="primary" x-on:click="$dispatch('close')">
                         {{ __('Cancel') }}
-                    </x-button>
+                    </x-ladmin-basic-button>
 
-                    <x-button variant="danger" class="ml-3">
+                    <x-ladmin-basic-button variant="danger" class="ml-3">
                         {{ __('Delete') }}
-                    </x-button>
+                    </x-ladmin-basic-button>
                 </div>
             </form>
-        </x-modal>
+        </x-ladmin-basic-modal>
     </x-slot>
-</x-layouts-auth>
+</x-ladmin-basic-layouts-auth>

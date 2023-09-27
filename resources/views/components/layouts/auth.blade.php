@@ -1,4 +1,4 @@
-<x-ladmin-basic-layouts-base>
+<x-ladmin-basic-theme::layouts.base>
     <x-slot name="header">
     </x-slot>
     <x-slot name="content">
@@ -108,4 +108,4 @@
     </x-slot>
     <x-slot name="footer">
     </x-slot>
-</x-ladmin-basic-layouts-base>
+</x-ladmin-basic-theme::layouts.base>

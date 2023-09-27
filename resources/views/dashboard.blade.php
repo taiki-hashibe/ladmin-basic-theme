@@ -1,7 +1,7 @@
-<x-layouts-auth>
+<x-ladmin-basic-layouts-auth>
     <x-slot name="content">
-        <x-heading>{{ __('Dashboard') }}</x-heading>
-        <x-card>
-        </x-card>
+        <x-ladmin-basic-heading>{{ __('Dashboard') }}</x-ladmin-basic-heading>
+        <x-ladmin-basic-card>
+        </x-ladmin-basic-card>
     </x-slot>
-</x-layouts-auth>
+</x-ladmin-basic-layouts-auth>
