@@ -2,9 +2,9 @@
     "name": "lowb/ladmin-basic-theme",
     "description": "This is my package ladmin-basic-theme",
     "keywords": [
-        "ladmin",
+        "lowb",
         "laravel",
-        "ladmin-basic-theme"
+        "ladmin"
     ],
     "homepage": "https://github.com/lowb/ladmin-basic-theme",
     "license": "MIT",
