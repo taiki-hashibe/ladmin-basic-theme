@@ -12,7 +12,7 @@ class GuestLayout extends Component
     {
         return FacadesView::first([
             'admin.layouts.guest',
-            'ladmin-basic-theme::layouts.guest'
+            'ladmin-basic-theme::layouts.guest',
         ]);
     }
 }

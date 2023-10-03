@@ -12,7 +12,7 @@ class AuthLayout extends Component
     {
         return FacadesView::first([
             'admin.layouts.auth',
-            'ladmin-basic-theme::layouts.auth'
+            'ladmin-basic-theme::layouts.auth',
         ]);
     }
 }
