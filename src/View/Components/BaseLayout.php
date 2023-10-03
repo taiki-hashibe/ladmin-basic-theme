@@ -12,7 +12,7 @@ class BaseLayout extends Component
     {
         return FacadesView::first([
             'admin.layouts.base',
-            'ladmin-basic-theme::layouts.base'
+            'ladmin-basic-theme::layouts.base',
         ]);
     }
 }
