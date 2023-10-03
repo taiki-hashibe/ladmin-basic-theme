@@ -18,8 +18,10 @@
                         {{ Ladmin::filter()->except('keyword')->render() }}
                     </form>
                 </label>
-                <x-ladmin-basic-anchor variant="primary"
-                    href="{{ route(Ladmin::getEditRouteName()) }}">{{ __('Create') }}</x-ladmin-basic-anchor>
+                @if (Ladmin::hasEdit() && Ladmin::hasCreate())
+                    <x-ladmin-basic-anchor variant="primary"
+                        href="{{ route(Ladmin::getEditRouteName()) }}">{{ __('Create') }}</x-ladmin-basic-anchor>
+                @endif
             </div>
             <div class="flex flex-wrap">
                 @foreach (request()->all() as $key => $param)
